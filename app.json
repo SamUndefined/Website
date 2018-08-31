@@ -1,0 +1,21 @@
+{
+  "name": "website",
+  "description": "My personal website.",
+  "scripts": {
+  },
+  "env": {
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
