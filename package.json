@@ -16,15 +16,21 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "webpack": "webpack --config webpack.config.js",
     "build": "./node_modules/.bin/tsc",
-    "postinstall": "npm run build"
+    "postinstall": "npm run build",
+    "migrate": "ts-node ./node_modules/.bin/typeorm migration:run"
   },
   "dependencies": {
     "@nestjs/common": "^5.0.0",
     "@nestjs/core": "^5.0.0",
+    "@nestjs/typeorm": "^5.2.0",
+    "@types/dotenv": "^4.0.3",
+    "dotenv": "^6.0.0",
     "fastify-formbody": "^2.0.0",
     "gulp": "^3.9.1",
+    "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
+    "typeorm": "^0.2.7",
     "typescript": "^2.6.2"
   },
   "devDependencies": {
@@ -51,7 +57,7 @@
       "js",
       "json",
       "ts"
-    ],
+],
     "rootDir": "src",
     "testRegex": ".spec.ts$",
     "transform": {
