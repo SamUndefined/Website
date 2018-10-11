@@ -1,0 +1,6 @@
+{
+    "emmet.triggerExpansionOnTab": true,
+    "[typescript]": {
+        "editor.tabSize": 2
+    }
+}
