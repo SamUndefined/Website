@@ -6,7 +6,7 @@
   "license": "MIT",
   "scripts": {
     "format": "prettier --write \"**/*.ts\"",
-    "start": "ts-node -r tsconfig-paths/register src/main.ts",
+    "start": "ts-node -r tsconfig-paths/register src/server/main.ts",
     "start:dev": "nodemon",
     "prestart:prod": "rm -rf dist && tsc",
     "start:prod": "node dist/main.js",
@@ -17,7 +17,8 @@
     "webpack": "webpack --config webpack.config.js",
     "build": "./node_modules/.bin/tsc",
     "postinstall": "npm run build",
-    "migrate": "ts-node ./node_modules/.bin/typeorm migration:run"
+    "migrate": "ts-node ./node_modules/.bin/typeorm migration:run",
+    "typeorm": "ts-node ./node_modules/.bin/typeorm"
   },
   "dependencies": {
     "@nestjs/common": "^5.0.0",

@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common'
 import { Repository } from 'typeorm';
-import { Article } from 'article/article.entity'
+import { Article } from './article/article.entity'
 
 @Injectable()
 export class AppService {

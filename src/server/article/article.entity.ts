@@ -13,18 +13,18 @@ export class Article {
     id: number
 
     @Column()
-    text: string
+    body: string
 
     @Column({ length: 50 })
     title: string
 
-    @Column()
+    @Column({ name: 'posted_on'})
     postedOn: Date
 
     @ManyToMany(type => Tag, tag => tag.articles)
     @JoinTable()
     tags: Tag[];
 
-    @Column()
+    @Column({ name: 'is_published'})
     isPublished: boolean
 }
