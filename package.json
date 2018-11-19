@@ -21,13 +21,13 @@
     "typeorm": "ts-node ./node_modules/.bin/typeorm"
   },
   "dependencies": {
-    "@nestjs/common": "^5.0.0",
-    "@nestjs/core": "^5.0.0",
+    "@nestjs/common": "^5.4.0",
+    "@nestjs/core": "^5.4.0",
     "@nestjs/typeorm": "^5.2.0",
     "@types/dotenv": "^4.0.3",
     "dotenv": "^6.0.0",
     "fastify-formbody": "^2.0.0",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "pg": "^7.4.3",
     "reflect-metadata": "^0.1.12",
     "rxjs": "^6.0.0",
@@ -58,7 +58,7 @@
       "js",
       "json",
       "ts"
-],
+    ],
     "rootDir": "src",
     "testRegex": ".spec.ts$",
     "transform": {
