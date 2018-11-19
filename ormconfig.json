@@ -6,12 +6,12 @@
     "password": "H!v3Logs4",
     "database": "dev",
     "entities": [
-        "src/**/**.entity.ts"
+        "dist/**/**.entity.js"
     ],
     "synchronize": false,
     "migrationsTableName": "db_migrations",
     "migrations": [
-        "migration/*.ts"
+        "dist/migration/*.js"
     ],
     "cli": {
         "migrationsDir": "migration"
