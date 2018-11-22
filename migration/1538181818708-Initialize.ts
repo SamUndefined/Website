@@ -1,24 +1,34 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm'
-import { DB } from '../src/types/db'
+import { DB } from '../src/server/types/db'
+
+const ARTICLE = 'article'
+const TAG = 'tag'
+const ARTICLE_TAG = 'article_tag'
+const PROJECT = 'project'
 
 export class Initialize1538181818708 implements MigrationInterface {
 
   public async up(queryRunner: QueryRunner): Promise<any> {
-    await this.articles(queryRunner)
-    await this.tags(queryRunner)
-    await this.articlesTags(queryRunner)
-    await this.projects(queryRunner)
+    await this.article(queryRunner)
+    await this.tag(queryRunner)
+    await this.articleTag(queryRunner)
+    await this.project(queryRunner)
   }
 
-  articles(queryRunner: QueryRunner) {
+  article(queryRunner: QueryRunner) {
     return queryRunner.createTable(new Table({
-      name: "articles",
+      name: ARTICLE,
       columns: [
         {
           name: 'id',
           type: DB.Id,
           isPrimary: true,
           isGenerated: true,
+          isNullable: false,
+        },
+        {
+          name: 'title',
+          type: DB.String,
           isNullable: false,
         },
         {
@@ -39,9 +49,9 @@ export class Initialize1538181818708 implements MigrationInterface {
     }), true)
   }
 
-  tags(queryRunner: QueryRunner) {
+  tag(queryRunner: QueryRunner) {
     return queryRunner.createTable(new Table({
-      name: "tags",
+      name: TAG,
       columns: [
         {
           name: 'id',
@@ -59,9 +69,9 @@ export class Initialize1538181818708 implements MigrationInterface {
     }), true)
   }
 
-  async articlesTags(queryRunner: QueryRunner) {
+  async articleTag(queryRunner: QueryRunner) {
     await queryRunner.createTable(new Table({
-      name: "articles_tags",
+      name: ARTICLE_TAG,
       columns: [
         {
           name: 'id',
@@ -83,24 +93,24 @@ export class Initialize1538181818708 implements MigrationInterface {
       ]
     }), true)
 
-    await queryRunner.createForeignKey("articles_tags", new TableForeignKey({
+    await queryRunner.createForeignKey(ARTICLE_TAG, new TableForeignKey({
       columnNames: ["article_id"],
       referencedColumnNames: ["id"],
-      referencedTableName: "articles",
+      referencedTableName: ARTICLE,
       onDelete: "CASCADE"
     }))
 
-    return queryRunner.createForeignKey("articles_tags", new TableForeignKey({
+    return queryRunner.createForeignKey(ARTICLE_TAG, new TableForeignKey({
       columnNames: ["tag_id"],
       referencedColumnNames: ["id"],
-      referencedTableName: "tags",
+      referencedTableName: TAG,
       onDelete: "CASCADE"
     }))
   }
 
-  projects(queryRunner: QueryRunner) {
+  project(queryRunner: QueryRunner) {
     return queryRunner.createTable(new Table({
-      name: "projects",
+      name: PROJECT,
       columns: [
         {
           name: 'id',
@@ -132,9 +142,9 @@ export class Initialize1538181818708 implements MigrationInterface {
   }
 
   public async down(queryRunner: QueryRunner): Promise<any> {
-    await queryRunner.dropTable("projects")
-    await queryRunner.dropTable("articles_tags")
-    await queryRunner.dropTable("tags")
-    await queryRunner.dropTable("articles")
+    await queryRunner.dropTable(PROJECT)
+    await queryRunner.dropTable(ARTICLE_TAG)
+    await queryRunner.dropTable(TAG)
+    await queryRunner.dropTable(ARTICLE)
   }
 }
