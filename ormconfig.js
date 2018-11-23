@@ -9,16 +9,12 @@ module.exports = {
     port: 5432,
     url: process.env.DATABASE_URL,
     ssl,
-    entities: [
-        entities
-    ],
+    entities: [entities],
     synchronize: false,
     migrationsTableName: "db_migrations",
-    migrations: [
-        "dist/migration/*.js"
-    ],
+    migrations: ["dist/migration/*.js"],
     cli: {
-        "migrationsDir": "migration"
+        "migrationsDir": "src/migration"
     }
  }
  
