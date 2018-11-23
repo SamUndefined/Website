@@ -16,7 +16,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "webpack": "webpack --config webpack.config.js",
     "build": "./node_modules/.bin/tsc",
-    "postinstall": "npm run build",
+    "postinstall": "npm run build && npm run migrate",
     "migrate": "ts-node ./node_modules/.bin/typeorm migration:run",
     "typeorm": "ts-node ./node_modules/.bin/typeorm"
   },
