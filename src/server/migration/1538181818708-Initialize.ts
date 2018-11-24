@@ -1,5 +1,5 @@
 import { MigrationInterface, QueryRunner, Table, TableForeignKey } from 'typeorm'
-import { DB } from '../src/server/types/db'
+import { DB } from '../types/db'
 
 const ARTICLE = 'article'
 const TAG = 'tag'
